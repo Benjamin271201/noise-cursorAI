@@ -5,7 +5,7 @@ function Particle(_x, _y, _size, _color) {
 	this.target = new p5.Vector(_x, _y);
 	this.size = _size;
 	this.mapped_angle = map(_x, 0, img.width, -180, 180) + map(_y, 0, img.height, -180, 180);
-	this.color = _color;
+	this.color = color(0, 0, 0);
 	this.maxForce = random(MIN_FORCE, MAX_FORCE);
 
 	this.goToTarget = function() {
@@ -22,17 +22,20 @@ function Particle(_x, _y, _size, _color) {
 	}
 	
 	this.avoidMouse = function() {
-		let mx = mouseX - width / 2 + img.width / 2;
-		let my = mouseY - height / 2 + img.height / 2;
+		mouses.forEach(mouse => {
+			let mx = mouse.mouseX;
+			let my = mouse.mouseY;
+			
+			 let mouseDistance = dist(this.pos.x, this.pos.y, mx, my);
+			
+			if (mouseDistance < REPULSION_RADIUS) {
+				let repulse = new p5.Vector(this.pos.x, this.pos.y);
+				repulse.sub(mx, my);
+				repulse.mult(map(mouseDistance, REPULSION_RADIUS, 0, 0, REPULSION_STRENGTH));
+				this.acc.add(repulse);
+			}
+		})
 		
- 		let mouseDistance = dist(this.pos.x, this.pos.y, mx, my);
-		
-		if (mouseDistance < REPULSION_RADIUS) {
-			let repulse = new p5.Vector(this.pos.x, this.pos.y);
-			repulse.sub(mx, my);
-			repulse.mult(map(mouseDistance, REPULSION_RADIUS, 0, 0, REPULSION_STRENGTH));
-			this.acc.add(repulse);
-		}
 	}
 	
 	this.move = function() {

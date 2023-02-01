@@ -16,6 +16,7 @@ const REPULSION_RADIUS = 75;
 const REPULSION_STRENGTH = 0.25;
 const IMG_RESIZED_WIDTH = 750;
 const IMG_SCAN_STEPS = 2;
+const NUM_OF_MOUSES = 10;
 
 const DrawTypes = {
 	Rect: 0,
@@ -25,6 +26,7 @@ const DrawTypes = {
 	Quad: 4
 };
 
+const mouses = [];
 var imgNames = ["noise.png"];
 var particles = [];
 var indices = [];
@@ -36,27 +38,18 @@ var img;
 
 function setup() {
 	let canvas = createCanvas(windowWidth, windowHeight);
-	canvas.canvas.oncontextmenu = () => false;
 	loadImg(imgNames[0]);
+	for (let i = 0; i < NUM_OF_MOUSES; i++) {
+		mouses.push(new Mouse());
+	  }
 }
 
-function draw() {
-	background(0);
+function draw() {	
 	
-	fill(255);
+	background(255);
+	
+	fill(0);
 	noStroke();
-	text(
-		`
-		** How to interact **
-		Move mouse over to interact with it.
-		
-		** Controls **
-		Left-click : Switch image
-		Right-click: Show source image
-		+ : Increase count
-		- : Decrease count
-		Space: Change particle type`, 
-		50, 50);
 	
 	if (img == null) {
 		return;
@@ -65,10 +58,15 @@ function draw() {
 	push();
 	translate(width / 2 - img.width / 2, height / 2 - img.height / 2);
 	
-	fill(255);
+	fill(0);
 	noStroke();
 	
 	rectMode(CENTER);
+	mouses.forEach(mouse => {
+		mouse.update();
+		mouse.draw();
+		mouse.position();
+	})
 	
 	particles.forEach(particle => {
 		particle.move();
@@ -118,6 +116,9 @@ function draw() {
 }
 
 function keyPressed() {
+	if (key == "m") {
+	
+	}
 	if (key == '+') {
 		particleCount = min(particleCount + 500, MAX_PARTICLE_COUNT);
 		spawnParticles();
@@ -130,11 +131,5 @@ function keyPressed() {
 	
 	if (key == ' ') {
 		nextDrawType();
-	}
-}
-
-function mousePressed() {
-	if (mouseButton == LEFT) {
-		loadNextImg();
 	}
 }
