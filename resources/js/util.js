@@ -106,3 +106,7 @@ function nextDrawType() {
 		drawType = 0;
 	}
 }
+
+function getAverageArrayOfCoordinates(arr) {
+	const average = arr.reduce((a, b) => a + b, 0) / arr.length;
+}

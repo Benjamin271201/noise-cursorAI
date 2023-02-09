@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- keep the line below for OpenProcessing compatibility -->
+    <script src="https://openprocessing.org/openprocessing_sketch.js"></script>
 
-<head>
-	<meta charset="utf-8" />
-	<!-- keep the line below for OpenProcessing compatibility -->
-	<script src="https://openprocessing.org/openprocessing_sketch.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
-	<script src="particle.js"></script>
-	<script src="perlin.js"></script>
-	<script src="mouse.js"></script>
-	<script src="util.js"></script>
+    <!-- external scripts and libraries-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+    <script src="libraries/perlin.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
+    <script src="resources/js/particle.js"></script>
+    <script src="resources/js/util.js"></script>
+    <script src="resources/js/mouse.js"></script>
+    <script async src="resources/js/camera.js"></script>
 
-<body>   
-	<script src="main.js"></script>
-</body>
+    <link rel="stylesheet" href="resources/css/style.css" />
+  </head>
 
+  <body>
+    <!-- camera screen on the top left corner-->
+    <div class="container camera-screen">
+      <video style="width: 0px; height: 0px" class="input_video"></video>
+      <canvas
+        style="position: fixed; top: 0; left: 0; z-index: 1;"
+        class="output_canvas"
+        width="360px"
+        height="288px"
+      ></canvas>
+    </div>
+    <!-- main canvas -->
+    <div class="canvas">
+      <script src="resources/js/main.js"></script>
+    </div>
+  </body>
 </html>

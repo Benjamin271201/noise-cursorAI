@@ -22,7 +22,6 @@ function Particle(_x, _y, _size, _color) {
 	}
 	
 	this.avoidMouse = function() {
-		mouses.forEach(mouse => {
 			let mx = mouse.mouseX;
 			let my = mouse.mouseY;
 			
@@ -34,7 +33,6 @@ function Particle(_x, _y, _size, _color) {
 				repulse.mult(map(mouseDistance, REPULSION_RADIUS, 0, 0, REPULSION_STRENGTH));
 				this.acc.add(repulse);
 			}
-		})
 		
 	}
 	

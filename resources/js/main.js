@@ -16,7 +16,7 @@ const REPULSION_RADIUS = 75;
 const REPULSION_STRENGTH = 0.25;
 const IMG_RESIZED_WIDTH = 750;
 const IMG_SCAN_STEPS = 2;
-const NUM_OF_MOUSES = 10;
+const NUM_OF_MOUSES = 1;
 
 const DrawTypes = {
 	Rect: 0,
@@ -27,7 +27,8 @@ const DrawTypes = {
 };
 
 const mouses = [];
-var imgNames = ["noise.png"];
+let mouse = "";
+var imgNames = ["resources/images/noise.png"];
 var particles = [];
 var indices = [];
 var imgIndex = 0;
@@ -39,9 +40,7 @@ var img;
 function setup() {
 	let canvas = createCanvas(windowWidth, windowHeight);
 	loadImg(imgNames[0]);
-	for (let i = 0; i < NUM_OF_MOUSES; i++) {
-		mouses.push(new Mouse());
-	  }
+	mouse = new Mouse();
 }
 
 function draw() {	
@@ -62,11 +61,8 @@ function draw() {
 	noStroke();
 	
 	rectMode(CENTER);
-	mouses.forEach(mouse => {
-		mouse.update();
-		mouse.draw();
-		mouse.position();
-	})
+
+	mouse.draw();
 	
 	particles.forEach(particle => {
 		particle.move();
