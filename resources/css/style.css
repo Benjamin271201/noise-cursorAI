@@ -9,10 +9,9 @@ canvas {
   top: 0;
   left: 0;
 }
-output-video {
+
+#output-video {
+  z-index: 100;
   position: fixed; 
-  bottom: 0; 
-  right: 0;
-  width: 40px;
-  height: 60px;
+  transform: scale(-1,1);
 }

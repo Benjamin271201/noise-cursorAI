@@ -1,4 +1,5 @@
 let cursorImg;
+
 function preload() {
   cursorImg = loadImage('https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/mouse.png');
 }
@@ -16,7 +17,6 @@ class Mouse {
       this.mouseX = 0;
       this.mouseY = 0;
     } else {
-      console.log(landmarks[10])
       this.mouseX = ((perlin.simplex3(landmarks[10].x) + 1) / 2) * width;
       this.mouseY = ((perlin.simplex3(landmarks[10].y) + 1) / 2) *  height;
     }
@@ -27,8 +27,12 @@ class Mouse {
   }
 
   updatePosition(x, y) {
-      this.mouseX = x * width;
-      this.mouseY = y * height;
+    const speedRatio = 1.2;
+    const widthOffset = width/4;
+    // this.mouseX = ((perlin.simplex3(x) + 100) / 2) * width;
+    // this.mouseY = ((perlin.simplex3(y) + 100) / 2) *  height;
+    this.mouseX = width - (x * speedRatio * width) - widthOffset;
+    this.mouseY = y * height;
   }
 
   position() {

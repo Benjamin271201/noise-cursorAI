@@ -1,5 +1,5 @@
-  const videoElement = document.getElementsByClassName("input_video")[0];
-  const canvasElement = document.getElementsByClassName("output_canvas")[0];
+  const videoElement = document.querySelector("#input-video");
+  const canvasElement = document.querySelector("#output-video");
   const canvasCtx = canvasElement.getContext("2d");
 
   function onResults(results) {
@@ -22,7 +22,6 @@
           lineWidth: 1,
         });
         drawLandmarks(canvasCtx, landmarks, { color: "#FF0000", lineWidth: 1 });
-        console.log(typeof mouse)
         if (typeof mouse != "undefined") {
             mouse.updatePosition(positionX, positionY);
             mouse.position()
@@ -49,7 +48,5 @@
     onFrame: async () => {
       await hands.send({ image: videoElement });
     },
-    width: 1280,
-    height: 720,
   });
   camera.start();

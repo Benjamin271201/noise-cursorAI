@@ -23,26 +23,23 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
-    <script src="libraries/perlin.js"></script>
+	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/addons/p5.sound-min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/perlin.js"></script>
 
     <script src="resources/js/particle.js"></script>
     <script src="resources/js/util.js"></script>
     <script src="resources/js/mouse.js"></script>
     <script async src="resources/js/camera.js"></script>
 
-    <link rel="stylesheet" href="resources/css/style.css" />
+    <link rel="stylesheet" href="./resources/css/style.css" type="text/css"/>
   </head>
 
   <body>
     <!-- camera screen on the top left corner-->
-    <div class="container camera-screen">
-      <video style="width: 0px; height: 0px" class="input_video"></video>
+    <div class="container camera-screen" style="width: 10vw; height: 10vh;">
+      <video style="width: 0px; height: 0px" id="input-video"></video>
       <canvas
-        style="position: fixed; top: 0; left: 0; z-index: 1;"
-        class="output_canvas"
-        width="360px"
-        height="288px"
+        id="output-video"
       ></canvas>
     </div>
     <!-- main canvas -->
