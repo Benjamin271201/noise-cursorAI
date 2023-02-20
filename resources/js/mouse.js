@@ -1,7 +1,7 @@
 let cursorImg;
 
 function preload() {
-  cursorImg = loadImage('https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/mouse.png');
+  cursorImg = loadImage('resources/images/cursor_temp.png');
 }
 
 class Mouse {
@@ -28,11 +28,12 @@ class Mouse {
 
   updatePosition(x, y) {
     const speedRatio = 1.2;
-    const widthOffset = width/4;
+    const widthOffset = width/6;
+    const heigthOffset = height/4;
     // this.mouseX = ((perlin.simplex3(x) + 100) / 2) * width;
     // this.mouseY = ((perlin.simplex3(y) + 100) / 2) *  height;
     this.mouseX = width - (x * speedRatio * width) - widthOffset;
-    this.mouseY = y * height;
+    this.mouseY = y * height + heigthOffset;
   }
 
   position() {

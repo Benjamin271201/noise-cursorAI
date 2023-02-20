@@ -1,7 +1,7 @@
 function Particle(_x, _y, _size, _color) {
 	this.pos = new p5.Vector(img.width / 2, img.height / 2);
-  this.vel = new p5.Vector(0, 0);
-  this.acc = new p5.Vector(0, 0);
+  	this.vel = new p5.Vector(0, 0);
+  	this.acc = new p5.Vector(0, 0);
 	this.target = new p5.Vector(_x, _y);
 	this.size = _size;
 	this.mapped_angle = map(_x, 0, img.width, -180, 180) + map(_y, 0, img.height, -180, 180);

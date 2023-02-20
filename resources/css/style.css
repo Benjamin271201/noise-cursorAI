@@ -4,6 +4,7 @@ body {
 	padding: 0;
 	overflow: hidden;
 }
+
 canvas {
   position: absolute;
   top: 0;
@@ -11,6 +12,8 @@ canvas {
 }
 
 #output-video {
+  height: 20vh;
+  width: calc(20vh * 16/9);
   z-index: 100;
   position: fixed; 
   transform: scale(-1,1);
