@@ -1,14 +1,14 @@
 let cursorImg;
 
 function preload() {
-  cursorImg = loadImage('resources/images/cursor_temp.png');
+  cursorImg = loadImage('resources/images/cursor white.png');
 }
 
 class Mouse {
   constructor () {
     this.mouseX = 0;
     this.mouseY = 0;
-    this.width = 15;
+    this.width = 30;
     this.height = this.width * (cursorImg.height / cursorImg.width);
   }
   
