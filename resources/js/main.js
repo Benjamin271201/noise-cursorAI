@@ -14,8 +14,8 @@ const MIN_FORCE = 0.75;
 const MAX_FORCE = 0.95;
 const REPULSION_RADIUS = 125;
 const REPULSION_STRENGTH = 0.325;
-const IMG_RESIZED_WIDTH = 1500;
-const IMG_SCAN_STEPS = 3;
+const IMG_RESIZED_WIDTH = 1450;
+const IMG_SCAN_STEPS = 4;
 const NUM_OF_MOUSES = 1;
 
 const DrawTypes = {
