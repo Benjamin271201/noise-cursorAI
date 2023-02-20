@@ -13,7 +13,7 @@ let imagePath = "resources/images";
 
 // Set up an image gallery
 var imageCollection = [
-  new DisplayImage(imagePath + "/fptfull.png", orangeHexColor, whiteHexColor),
+  new DisplayImage(imagePath + "/fptfull.png", whiteHexColor, orangeHexColor),
   new DisplayImage(imagePath + "/fptonlylogo.png", whiteHexColor, orangeHexColor),
-  new DisplayImage(imagePath + "/noise.png", blackHexColor, whiteHexColor),
+  new DisplayImage(imagePath + "/noise.png", whiteHexColor, blackHexColor),
 ];
