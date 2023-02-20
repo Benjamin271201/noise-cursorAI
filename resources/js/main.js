@@ -42,7 +42,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background("#F27126");
 
   fill(0);
   noStroke();
