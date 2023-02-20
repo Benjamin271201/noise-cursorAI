@@ -6,8 +6,8 @@ class DisplayImage {
   }
 }
 
-let whiteHexColor = "#F27126";
-let orangeHexColor = "#FFFFFF";
+let whiteHexColor = "#FFFFFF";
+let orangeHexColor = "#F27126";
 let blackHexColor = "#000000";
 let imagePath = "resources/images";
 
