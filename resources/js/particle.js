@@ -5,7 +5,7 @@ function Particle(_x, _y, _size, _color) {
 	this.target = new p5.Vector(_x, _y);
 	this.size = _size;
 	this.mapped_angle = map(_x, 0, img.width, -180, 180) + map(_y, 0, img.height, -180, 180);
-	this.color = color(0, 0, 0);
+	this.color = _color;
 	this.maxForce = random(MIN_FORCE, MAX_FORCE);
 
 	this.goToTarget = function() {

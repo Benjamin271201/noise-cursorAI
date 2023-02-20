@@ -1,17 +1,18 @@
 function loadNextImg() {
 	imgIndex++;
-	if (imgIndex >= imgNames.length) {
+	if (imgIndex >= imageCollection.length) {
 		imgIndex = 0;
 	}
-	loadImg(imgNames[imgIndex]);
+	loadImg(imageCollection[imgIndex]);
 }
 
-function loadImg(imgName) {
-	loadImage(imgName, newImg => {
-    img = newImg;
+function loadImg(displayImage) {
+	loadImage(displayImage.path, newImg => {
+    	img = newImg;
 		img.loadPixels();
 		img.resize(IMG_RESIZED_WIDTH, 0);
-		spawnParticles();
+		background(displayImage.backgroundColor)
+		spawnParticles(displayImage.particleColor);
   });
 }
 
@@ -31,7 +32,7 @@ function setupImg() {
 	}
 }
 
-function spawnParticles() {
+function spawnParticles(particleColor) {
 	particles = [];
 	
 	setupImg();
@@ -79,13 +80,13 @@ function spawnParticles() {
 					newParticle = new Particle(
 						x, y, 
 						min(smallestSize, maxSize) * 0.75, 
-						color(r, g, b, a));
+						color(particleColor));
 				}
 			} else {
 				newParticle = new Particle(
 					x, y, 
 					maxSize,
-					color(r, g, b, a));
+					color(particleColor));
 			}
 			
 			attempts += 1;
