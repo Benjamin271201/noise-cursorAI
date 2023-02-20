@@ -8,7 +8,7 @@ twitter.com/russetPotato
 const SPIN_MULTIPLIER = 45;
 const MIN_PARTICLE_COUNT = 1500;
 const MAX_PARTICLE_COUNT = 1800;
-const MIN_PARTICLE_SIZE = 3;
+const MIN_PARTICLE_SIZE = 2;
 const MAX_PARTICLE_SIZE = 15;
 const MIN_FORCE = 0.75;
 const MAX_FORCE = 0.95;
