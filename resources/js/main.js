@@ -27,7 +27,7 @@ const DrawTypes = {
 
 const mouses = [];
 let mouse = "";
-var imgNames = ["resources/images/fptfull.png", "resources/images/fptonlylogo.png", "resources/images/noise.png"];
+var imgNames = ["resources/images/fptfull.png", "resources/images/logo_co.png", "resources/images/noise.png"];
 var particles = [];
 var indices = [];
 var imgIndex = 0;
