@@ -6,14 +6,14 @@ class DisplayImage {
   }
 }
 
-let whiteHexColor = "#FFFFFF";
-let orangeHexColor = "#F27126";
+let whiteHexColor = "#F27126";
+let orangeHexColor = "#FFFFFF";
 let blackHexColor = "#000000";
 let imagePath = "resources/images";
 
 // Set up an image gallery
 var imageCollection = [
-  new DisplayImage(imagePath + "/fptfull.png", orangeHexColor, blackHexColor),
+  new DisplayImage(imagePath + "/fptfull.png", whiteHexColor, orangeHexColor),
   new DisplayImage(imagePath + "/fptonlylogo.png", whiteHexColor, orangeHexColor),
   new DisplayImage(imagePath + "/noise.png", whiteHexColor, blackHexColor),
 ];
