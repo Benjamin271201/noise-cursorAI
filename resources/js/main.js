@@ -119,7 +119,7 @@ function draw() {
 }
 
 function keyPressed() {
-  if (key == "q") {
+  if (key == "f") {
     loadNextImg();
   }
   if (key == " ") {
