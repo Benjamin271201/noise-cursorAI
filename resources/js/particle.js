@@ -7,6 +7,7 @@ function Particle(_x, _y, _size, _color) {
 	this.mapped_angle = map(_x, 0, img.width, -180, 180) + map(_y, 0, img.height, -180, 180);
 	this.color = _color;
 	this.maxForce = random(MIN_FORCE, MAX_FORCE);
+	this.display = false;
 
 	this.goToTarget = function() {
     let steer = new p5.Vector(this.target.x, this.target.y);

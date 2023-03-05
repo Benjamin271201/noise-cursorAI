@@ -26,6 +26,7 @@ const DrawTypes = {
 };
 
 const mouses = [];
+const particlesArray = [];
 let mouse = "";
 var particles = [];
 var indices = [];
@@ -37,12 +38,12 @@ var img;
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
-  loadImg(imageCollection[0]);
+  preloadBatchImages();
   mouse = new Mouse();
 }
 
 function draw() {
-  background("#F27126");
+  background("#000000");
 
   fill(0);
   noStroke();

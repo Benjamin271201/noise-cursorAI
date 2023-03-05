@@ -3,7 +3,7 @@ function loadNextImg() {
 	if (imgIndex >= imageCollection.length) {
 		imgIndex = 0;
 	}
-	loadImg(imageCollection[imgIndex]);
+	particles = particlesArray[imgIndex];
 }
 
 function loadImg(displayImage) {
@@ -11,15 +11,19 @@ function loadImg(displayImage) {
     	img = newImg;
 		img.loadPixels();
 		img.resize(IMG_RESIZED_WIDTH, 0);
-		background(displayImage.backgroundColor)
-		spawnParticles(displayImage.particleColor);
+		particlesArray.push(generateParticles(displayImage.particleColor));
   });
+}
+ 
+function preloadBatchImages() {
+	imageCollection.forEach(image => {
+		loadImg(image);
+	});
 }
 
 // Collects valid positions where a particle can spawn onto.
 function setupImg() {
 	indices = [];
-	
 	for (let x = 0; x < img.width; x+=IMG_SCAN_STEPS * 4) {
 		for (let y = 0; y < img.height; y+=IMG_SCAN_STEPS * 4) {
 			let index = (x + y * img.width) * 4;
@@ -32,8 +36,8 @@ function setupImg() {
 	}
 }
 
-function spawnParticles(particleColor) {
-	particles = [];
+function generateParticles(particleColor) {
+	let preloadParticles = [];
 	
 	setupImg();
 	
@@ -58,16 +62,11 @@ function spawnParticles(particleColor) {
 			let x = (index / 4) % img.width;
 			let y = (index / 4) / img.width;
 			
-			let r = img.pixels[index];
-			let g = img.pixels[index + 1];
-			let b = img.pixels[index + 2];
-			let a = img.pixels[index + 3];
-			
-			if (particles.length > 0) {
+			if (preloadParticles.length > 0) {
 				let smallestSize = null;
 				
-				for (let i = 0; i < particles.length; i++) {
-					let otherParticle = particles[i];
+				for (let i = 0; i < preloadParticles.length; i++) {
+					let otherParticle = preloadParticles[i];
 					let d = dist(x, y, otherParticle.target.x, otherParticle.target.y);
 					let newSize = (d - (otherParticle.size / 2)) * 2;
 					
@@ -96,9 +95,15 @@ function spawnParticles(particleColor) {
 		}
 
 		if (newParticle != null) {
-			particles.push(newParticle);	
+			preloadParticles.push(newParticle);	
 		}
 	}
+	if (particles.length === 0) particles.push(...preloadParticles);
+	return preloadParticles;	
+}
+
+function spawnParticles(index) {
+	particles = particlesArray[index];
 }
 
 function nextDrawType() {
