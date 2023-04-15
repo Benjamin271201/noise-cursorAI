@@ -13,7 +13,5 @@ let imagePath = "resources/images";
 
 // Set up an image gallery
 var imageCollection = [
-  new DisplayImage(imagePath + "/nologo.png", orangeHexColor, whiteHexColor),
-  new DisplayImage(imagePath + "/fptonlylogo.png", orangeHexColor, whiteHexColor),
   new DisplayImage(imagePath + "/Noise Logo OFFICIAL.png", blackHexColor, whiteHexColor),
 ];
