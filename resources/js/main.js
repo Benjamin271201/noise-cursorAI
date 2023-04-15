@@ -6,16 +6,16 @@ twitter.com/russetPotato
 */
 
 const SPIN_MULTIPLIER = 45;
-const MIN_PARTICLE_COUNT = 1500;
-const MAX_PARTICLE_COUNT = 1499;
-const MIN_PARTICLE_SIZE = 2;
-const MAX_PARTICLE_SIZE = 10;
+const MIN_PARTICLE_COUNT = 200;
+const MAX_PARTICLE_COUNT = 700;
+const MIN_PARTICLE_SIZE = 12;
+const MAX_PARTICLE_SIZE = 50;
 const MIN_FORCE = 0.75;
 const MAX_FORCE = 0.95;
 const REPULSION_RADIUS = 125;
 const REPULSION_STRENGTH = 0.325;
-const IMG_RESIZED_WIDTH = 600;
-const IMG_SCAN_STEPS = 4;
+const IMG_RESIZED_WIDTH = 750;
+const IMG_SCAN_STEPS = 3;
 const NUM_OF_MOUSES = 1;
 
 const DrawTypes = {
@@ -32,7 +32,7 @@ var particles = [];
 var indices = [];
 var imgIndex = 0;
 var drawType = 0;
-var particleCount = 1500;
+var particleCount = 550;
 var maxSize = 0;
 var img;
 
