@@ -6,8 +6,8 @@ twitter.com/russetPotato
 */
 
 const SPIN_MULTIPLIER = 45;
-const MIN_PARTICLE_COUNT = 3000;
-const MAX_PARTICLE_COUNT = 2900;
+const MIN_PARTICLE_COUNT = 1000;
+const MAX_PARTICLE_COUNT = 900;
 const MIN_PARTICLE_SIZE = 2;
 const MAX_PARTICLE_SIZE = 12;
 const MIN_FORCE = 0.75;
@@ -31,7 +31,7 @@ var particles = [];
 var indices = [];
 var imgIndex = 0;
 var drawType = 0;
-var particleCount = 3000;
+var particleCount = 1000;
 var maxSize = 0;
 var img;
 
@@ -42,7 +42,7 @@ function setup() {
 }
 
 function draw() {
-  background("#F27126");
+  background("#000000");
 
   fill(0);
   noStroke();
