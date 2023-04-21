@@ -1,5 +1,3 @@
-import * as mediaPipe from "../../libraries/mediaPipe";
-
 const videoElement = document.querySelector("#input-video");
 const canvasElement = document.querySelector("#output-video");
 const canvasCtx = canvasElement.getContext("2d");
@@ -35,7 +33,7 @@ function onResults(results) {
 
 const hands = new Hands({
   locateFile: (file) => {
-    return mediaPipe;
+    return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
   },
 });
 hands.setOptions({
